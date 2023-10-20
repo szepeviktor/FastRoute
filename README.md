@@ -156,11 +156,11 @@ $r->addGroup('/admin', function (RouteCollector $r) {
 
 Will have the same result as:
 
- ```php
+```php
 $r->addRoute('GET', '/admin/do-something', 'handler');
 $r->addRoute('GET', '/admin/do-another-thing', 'handler');
 $r->addRoute('GET', '/admin/do-something-else', 'handler');
- ```
+```
 
 Nested groups are also supported, in which case the prefixes of all the nested groups are combined.
 
