@@ -24,4 +24,4 @@ indent_size = 2
 
 # Some artistic indentation
 [src/RouteParser/Std.php]
-indent_size = 2
+indent_size = unset

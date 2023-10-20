@@ -28,9 +28,6 @@ on:  # yamllint disable-line rule:truthy
                 required: false
 
 permissions: {}  # yamllint disable-line rule:braces
-#permissions: "read-all"
-#permissions:
-#    contents: "read" # Private repositories need read permission
 
 concurrency:
     group: "${{ github.workflow }}-${{ github.ref }}-reusable-integrity"
