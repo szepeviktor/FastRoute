@@ -7,4 +7,5 @@
 /psalm.xml      export-ignore
 /phpbench.json  export-ignore
 /composer.lock  export-ignore
+/composer-require-checker.json export-ignore
 /Makefile       export-ignore

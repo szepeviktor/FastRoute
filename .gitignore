@@ -1,5 +1,4 @@
 /vendor/
-/composer-require-checker.json
 /.idea/
 
 phpunit.xml
