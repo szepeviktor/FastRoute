@@ -156,11 +156,11 @@ $r->addGroup('/admin', function (RouteCollector $r) {
 
 Will have the same result as:
 
- ```php
+```php
 $r->addRoute('GET', '/admin/do-something', 'handler');
 $r->addRoute('GET', '/admin/do-another-thing', 'handler');
 $r->addRoute('GET', '/admin/do-something-else', 'handler');
- ```
+```
 
 Nested groups are also supported, in which case the prefixes of all the nested groups are combined.
 
@@ -307,7 +307,6 @@ resource to bypass this behavior entirely.
 This library is based on a router that [Levi Morrison][levi] implemented for the Aerys server.
 
 A large number of tests, as well as HTTP compliance considerations, were provided by [Daniel Lowrey][rdlowrey].
-
 
 [2616-511]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.1 "RFC 2616 Section 5.1.1"
 [blog_post]: http://nikic.github.io/2014/02/18/Fast-request-routing-using-regular-expressions.html

@@ -8,4 +8,20 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 charset = utf-8
-indent_size = 4;
+indent_size = 4
+eclint_block_comment_start = /*
+eclint_block_comment = *
+eclint_block_comment_end = */
+
+[Makefile]
+indent_style = tab
+
+[LICENSE]
+indent_size = unset
+
+[*.yml]
+indent_size = 2
+
+# Some artistic indentation
+[src/RouteParser/Std.php]
+indent_size = unset
