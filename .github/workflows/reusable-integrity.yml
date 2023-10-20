@@ -60,12 +60,6 @@ jobs:
                         | cut --characters='51-' \
                         | paste --serial --delimiters=' '
                 )" = "${{ inputs.executables }}"
-                # Filesystem-based
-                #test "$(
-                #    find ./ -type f -not -path './.git/*' \
-                #        -executable \
-                #        -exec echo -n '{}' '+'
-                #)" = "${{ inputs.executables }}"
         -
             # https://github.com/greut/eclint/issues/6
             name: "Check for byte order mark (BOM)"
@@ -77,11 +71,6 @@ jobs:
             run: |
                 ! LC_ALL=C.UTF-8 git grep --perl-regexp --line-number -I -e '[^ -~]' \
                     -- ${{ inputs.not-printable-ascii-paths }}
-                # Filesystem-based
-                #! LC_ALL=C.UTF-8 find src/ resources/ tests/ -type f -print0 \
-                #    | xargs --null -- grep --perl-regexp --with-filename --line-number '[^ -~]'
-                # Ignore lines
-                #    | grep -v '// @ignore-non-ascii$'
         -
             name: "Check EditorConfig configuration"
             run: "test -f .editorconfig"
@@ -97,7 +86,7 @@ jobs:
             run: |
                 # Exclude comment lines and docblocks
                 ! git grep --perl-regexp --line-number -I \
-                    -e '\S\s\s' --and --not -e '^(#|//)' --and --not -e '    \* @' \
+                    -e '\S\s\s' --and --not -e '^(#|//)' --and --not -e '    \* \s*\S' \
                     -- ':!:*.lock' ':!:*.md' ':!:.github/**.yml'
         -
             # Move TODO-s into GitHub issues!
@@ -173,7 +162,6 @@ jobs:
         -
             name: "Check for ignored files in the index 🐌"
             run: |
-                # Add negated files: ':!:path/to/negated'
                 IGNORED_FILES="$(git ls-files --cached --ignored --exclude-standard)"
                 test -z "${IGNORED_FILES}"
         -

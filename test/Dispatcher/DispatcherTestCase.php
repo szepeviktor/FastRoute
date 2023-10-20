@@ -255,7 +255,7 @@ abstract class DispatcherTestCase extends TestCase
             $r->addRoute('GET', '/b', 'handler1');
         };
 
-        yield 'fallback to GET route on HEAD miss {static routes}' =>  ['HEAD', '/b', $callback, 'handler1'];
+        yield 'fallback to GET route on HEAD miss {static routes}' => ['HEAD', '/b', $callback, 'handler1'];
 
         $callback = static function (RouteCollector $r): void {
             $r->addRoute('GET', '/foo', 'handler0');
